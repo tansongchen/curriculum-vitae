@@ -1,38 +1,49 @@
-.App {
+:root {
+  --main-color: rgb(17, 85, 138);
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+
+h1, #name {
+  font-family: Montserrat;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 1rem 1rem 0 0;
+  color: var(--main-color);
+  border-bottom: 1.5px solid var(--main-color);
+}
+
+#name {
   text-align: center;
+  font-size: x-large;
+  margin: .5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#contacts {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#contacts > span {
+  margin: 0 1rem;
+  font-size: small;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+span svg, span a, span span {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 .25em;
+}
+
+#contacts a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 600;
 }
