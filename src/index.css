@@ -8,6 +8,10 @@
   box-shadow: 0px 0px 10px 10px #aaa;
 }
 
+html {
+  font-size: 10pt;
+}
+
 body {
   background-color: #ddd;
 }
