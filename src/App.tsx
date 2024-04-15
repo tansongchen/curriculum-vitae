@@ -120,8 +120,12 @@ const SkillList = ({ category, content }: SkillListProps) => <article style={{ma
 // Blocks
 
 const Educations = () => <Section title="Education">
-  <Education institution='Massachusetts Institute of Technology' degree='Master of Science in Computational Science and Engineering' gpa='5.00 / 5.00' start={new Date('2021-09-02')} location='Cambridge, MA'>
-    <li><strong>Selected coursework</strong>: Numerical Methods for Partial Differential Equations (A+), Optimization Methods (A), Introduction to Numerical Methods (A), Parallel Computing & Scientific Machine Learning (A)</li>
+  <Education institution='Massachusetts Institute of Technology' degree='Doctor of Science in Computational Science and Engineering' gpa='5.00 / 5.00' start={new Date('2023-09-02')} location='Cambridge, MA'>
+    <li><strong>Selected coursework</strong>: Eigenvalue of Random Matrices (A)</li>
+  </Education>
+  <Divider />
+  <Education institution='Massachusetts Institute of Technology' degree='Master of Science in Computational Science and Engineering' gpa='5.00 / 5.00' start={new Date('2021-09-02')} end={new Date('2023-06-02')} location='Cambridge, MA'>
+    <li><strong>Selected coursework</strong>: Parallel Computing & Scientific Machine Learning (A), Optimization Methods (A), Numerical Methods for Partial Differential Equations (A+), Introduction to Numerical Methods (A) </li>
   </Education>
   <Divider />
   <Education institution='Peking University' degree='Bachelor of Science in Chemistry & Bachelor of Science in Physics' gpa='3.89 / 4.00, rank 1 / 137' start={new Date('2017-09-01 04:00')} end={new Date('2021-07-01 04:00')} location='Beijing'>
@@ -135,9 +139,17 @@ const Educations = () => <Section title="Education">
 </Section>
 
 const Publication = () => <Section title="Publication">
+  <Article authors={<span><strong>S. Tan</strong>: Higher-Order Automatic Differentiation and Its Applications</span>} journal="Master's Thesis at MIT" year={2023}/>
   <Article authors={<span><strong>S. Tan</strong>: Data-Driven Density Functional Models</span>} journal="Bachelor's Thesis at Peking University" year={2021}/>
   <Article authors={<span>I. Leven, H. Hao, <strong>S. Tan</strong>, ..., T. Head‐Gordon</span>} journal="J. Chem. Theory Comput." year={2021} doi='10.1021/acs.jctc.1c00118'/>
   <Article authors={<span><strong>S. Tan</strong>, I. Leven, ..., T. Head‐Gordon</span>} journal="J. Chem. Theory Comput." year={2020} doi='10.1021/acs.jctc.0c00514'/>
+</Section>
+
+const ProfessonalExperience = () => <Section title="Professional Experience">
+  <Research title="Deep Learning Compiler Engineer Intern" institution='NVIDIA' supervisor='Yuan Lin (Deep Learning Compiler Team)' start={new Date('2022-05-01 04:00')} end={new Date('2022-08-01 04:00')} location='Santa Clara, CA'>
+    <li>Investigated the heuristics of choosing kernels and compilation parameters during GEMM + epilogue fusion, and improved the optimal tactic hit by 70%</li>
+    <li>Accelerated the layer fusion compilation by 40%, by a combination of caching, multi-threading and reducing trial compilations</li>
+  </Research>
 </Section>
 
 const ResearchExperience = () => <Section title="Research Experience">
@@ -172,15 +184,10 @@ const ResearchExperience = () => <Section title="Research Experience">
     <li>Developed an extended Lagrangian scheme to replace the algebraic part with differential dynamics of an extended system, thereby eliminating the expensive charge-equilibration step (i.e. algebraic equation solving) in simulation</li>
     <li>Proved the correctness of this scheme both theoretically and practically (the modified simulation still reproduced statistic and dynamic properties of that system)</li>
   </Research>
-  <Divider />
-  <Research title="Approximation of Dynamic Screened Potential in Bethe-Salpeter Equation" institution='University of California, Los Angeles' supervisor='Daniel Neuhauser' start={new Date('2019-09-01 04:00')} end={new Date('2019-12-01 04:00')} location='Los Angeles, CA'>
-    <li>Investigated the Bethe-Salpeter equation which describes optical properties in solid-state physics, and in which the screened potential term <em>W</em> is conventionally approximated by its value at zero frequency</li>
-    <li>Incorporated a first-order plasmon expansion correction to <em>W</em> and derived the corresponding eigenvalue equation</li>
-    <li>Improved the accuracy of optical properties when testing in the 1D Hubbard model</li>
-  </Research>
 </Section>
 
 const Awards = () => <Section title="Awards">
+  <Award title="MathWorks Prize for Outstanding Masters Research" awarder="MIT Center for Computational Science and Engineering" date={new Date('2023-03-02')}/>
   <Award title="Weiming Bachelor" awarder="Peking University (top 1%)" date={new Date('2021-07-02')}/>
   <Award title="Academic Award" awarder="College of Chemistry and Molecular Engineering, Peking University (top 2%)" date={new Date('2021-07-02')}/>
   <Award title="2020 Wusi Scholarship & Merit Student" awarder="Peking University (top 1%)" date={new Date('2020-11-02')}/>
@@ -191,9 +198,9 @@ const Awards = () => <Section title="Awards">
 </Section>
 
 const Skills = () => <Section title="Skills">
-  <SkillList category='Programming Languages' content={['Julia', 'C/C++', 'Python', 'Fortran', 'JavaScript/TypeScript']} />
-  <SkillList category='Scientific Computing & Machine Learning Software' content={['PySCF', 'OpenMM', 'LAMMPS', 'PyTorch', 'Flux']} />
-  <SkillList category='High-Performance Computing Techniques' content={['parallel computing with MPI & OpenMP', 'compiler optimizations with LLVM']} />
+  <SkillList category='Programming Languages' content={['C/C++', 'Julia', 'Python', 'Rust', 'Fortran', 'JavaScript/TypeScript']} />
+  <SkillList category='High-Performance Computing' content={['CUDA', 'MPI & OpenMP', 'compiler optimizations with LLVM']} />
+  <SkillList category='Scientific Computing & Machine Learning Software' content={['PyTorch', 'Flux.jl', 'PySCF', 'OpenMM', 'LAMMPS']} />
 </Section>
 
 export default function App() {
@@ -210,6 +217,7 @@ export default function App() {
   <main>
     <Educations />
     <Publication />
+    <ProfessonalExperience />
     <ResearchExperience />
     <Awards />
     <Skills />
