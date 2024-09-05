@@ -1,0 +1,21 @@
+---
+import Basic from "./Basic.astro";
+import type { Props as BasicProps } from "./Basic.astro";
+
+interface Props extends BasicProps {
+  gpa: string;
+  coursework: string[];
+}
+
+const { gpa, coursework, ...basic } = Astro.props;
+---
+
+<article>
+  <Basic {...basic} />
+  <p>
+    <strong>GPA</strong>: {gpa}
+  </p>
+  <p>
+    <strong>Relevant Coursework</strong>: {coursework.join(", ")}
+  </p>
+</article>

@@ -1,0 +1,16 @@
+---
+interface Award {
+  title: string;
+  awarder: string;
+  date: Date;
+}
+
+const { title, awarder, date } = Astro.props;
+---
+
+<article class="line">
+  <div>
+    <strong>{title}</strong>{awarder ? <span>, {awarder}</span> : <></>}
+  </div>
+  <div>{date.toLocaleDateString("en-US", { year: "numeric", month: "2-digit" })}</div>
+</article>

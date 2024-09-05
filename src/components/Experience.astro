@@ -1,0 +1,20 @@
+---
+import type { Props as BasicProps } from "./Basic.astro";
+import Basic from "./Basic.astro";
+
+interface Props extends BasicProps {
+  supervisor?: string;
+}
+
+const { supervisor, ...basic } = Astro.props;
+---
+
+<article>
+  <Basic {...basic} />
+  <p>
+    Advisor: <strong>{supervisor}</strong>
+  </p>
+  <ul>
+    <slot />
+  </ul>
+</article>

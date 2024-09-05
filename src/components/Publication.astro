@@ -1,0 +1,20 @@
+---
+interface Publication {
+  authors: string;
+  journal: string;
+  year: number;
+  doi?: string;
+}
+
+const { authors, journal, year, doi } = Astro.props;
+---
+
+<article>
+  {authors}; <em>{journal} </em>
+  <strong>{year} </strong>
+  {doi && (
+    <a href={`https://doi.org/${doi}`}>
+      <code>{doi}</code>
+    </a>
+  )}
+</article>

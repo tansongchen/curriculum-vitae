@@ -1,0 +1,36 @@
+---
+export interface Props {
+  title: string;
+  start: Date;
+  end?: Date;
+  location: string;
+  description?: string;
+}
+
+const { title, start, end, location, description } = Astro.props;
+---
+
+<>
+  <div class="line">
+    <h2>{title}</h2>
+    <span class="location">{location}</span>
+  </div>
+  <div class="line">
+    <span>{description}</span>
+    <span>
+      {
+        start.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "2-digit",
+        })
+      }{" "}
+      &ndash;{" "}
+      {
+        end?.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "2-digit",
+        }) ?? "Current"
+      }
+    </span>
+  </div>
+</>
